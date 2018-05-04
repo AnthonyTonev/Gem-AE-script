@@ -12,15 +12,6 @@
         var gemSize = 100;
 
 
-
-
-
-        ///SHAMELESS STEALING 
-
-
-
-
-
         var configs = {
             title: 'Explode layer tool',
             debug: false,
@@ -28,14 +19,9 @@
             itemAmountWarning: 50,
             dryRun: false,
         };
-        //        function cLog(text) {
-        //    if (configs.log)
-        //        $.writeln(text);
-        //}   
-        //start steal
+
         function explodeLayer(layer) {
 
-            //cLog('Exploding layer : ' + layer.name);
 
             // Get the elements of the original shape layer
             var contents = layer.property("Contents");
@@ -60,7 +46,6 @@
 
                 // Get the original property
                 var _prop = contents.property(i);
-                //pb.update(contents.numProperties - i)
 
                 // Skip the property if not enabled
                 if (!_prop.enabled) continue;
@@ -109,19 +94,7 @@
                 return;
             }
 
-            // cLog('==================')
-
-            //    cLog('Configs :')
-            //    for(config in configs) {
-            //        if(configs.hasOwnProperty(config))
-            //            cLog('    ' + config + ' : ' + configs[config])
-            //    }
-            //
-            //    cLog('')
-
-            //    var execTime = new ExecutionTime();
-            //    execTime.start();
-
+           
             var hideShyLayers_originalState = selectedLayer.containingComp.hideShyLayers;
             selectedLayer.containingComp.hideShyLayers = true;
 
@@ -129,9 +102,7 @@
 
             selectedLayer.moveToBeginning()
             selectedLayer.containingComp.hideShyLayers = hideShyLayers_originalState;
-            //
-            //    execTime.stop();
-            //    cLog(execTime.time());
+           
 
         }
 
@@ -156,8 +127,7 @@
                 var _prop = origin.property(i);
 
                 if (!target.canAddProperty(_prop.matchName)) return;
-//!_prop.enabled ||
-                // cDebug(prefix + _prop.matchName);
+
 
                 var prop = target.addProperty(_prop.matchName);
 
@@ -168,7 +138,7 @@
                         break;
 
                     case 'ADBE Vector Materials Group':
-                        //cDebug(prefix + '-- skipped');
+                      
                         break;
 
                     case 'ADBE Vector Graphic - Stroke':
@@ -236,20 +206,6 @@
             copyProperty('lineCap', origin, target);
             copyProperty('lineJoin', origin, target);
             copyProperty('miterLimit', origin, target);
-
-            // TOFIX : dash are present, no mater if deleted or not ! (disabled for now)
-            // if(false && origin.dash.enabled) {
-            //
-            //     for(var i=1; i <= origin.dash.numProperties; i++) {
-            //
-            //         var dashProp = origin.dash.property(i);
-            //
-            //         if(dashProp.enabled)
-            //             target.dash.addProperty(dashProp.matchName).setValue(dashProp.value);
-            //
-            //     }
-            //
-            // }
 
         }
 
