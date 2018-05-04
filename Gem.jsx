@@ -21,9 +21,7 @@
         };
 
         function explodeLayer(layer) {
-
-
-            // Get the elements of the original shape layer
+  
             var contents = layer.property("Contents");
             var layers = [];
 
@@ -39,18 +37,10 @@
             }
 
                 
-              
-
-            // Browse through contents array
             for (var i = contents.numProperties; i > 0; i--) {
 
-                // Get the original property
                 var _prop = contents.property(i);
-
-                // Skip the property if not enabled
                 if (!_prop.enabled) continue;
-
-                // Duplicate the original layer and rename with property name
                 var new_layer = emptyDuplicateLayer(layer)
 
                 new_layer.name = layer.name + ' - ' + _prop.name;
@@ -80,7 +70,6 @@
 
         function explode() {
 
-            // Check if multiple layers selected
             if (app.project.activeItem.selectedLayers.length > 1) {
                 alert("Select a single shape layer");
                 return;
@@ -88,7 +77,6 @@
 
             var selectedLayer = app.project.activeItem.selectedLayers[0];
 
-            // Check if the layer is null or wrong type
             if (selectedLayer == undefined || selectedLayer.matchName !== 'ADBE Vector Layer') {
                 alert("Select a shape layer");
                 return;
@@ -263,11 +251,6 @@
             copyProperty('outerRadius', origin, target)
             copyProperty('outerRoundness', origin, target)
         }
-
-
-
-        //stop SHAMELESS STEALING
-
 
         function createEffector() {
 
