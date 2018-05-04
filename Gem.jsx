@@ -763,22 +763,6 @@
 
                     explode();
 
-
-                    //                var myLayers = app.project.activeItem.selectedLayers;
-                    //                var myLayer;
-                    //                for (var i = 0; i < myLayers.length; i++) {
-                    //                    myLayer = myLayers[i];
-                    //                    if (myLayer instanceof ShapeLayer) {
-                    //                        var myContents = myLayer.property("Contents");
-                    //                        for (var j = 1; j <= myContents.numProperties; j++) {
-                    //                            var newLayer = app.project.activeItem.addShape();
-                    //                            
-                    //                          var props = myContents.property(j);
-                    //                         // newLayer.property("Contents").addProperty(myContents.property(j););
-                    //myContents.property(j).property("Transform").property("Position").expression = codeValue;
-                    //                        }
-                    //                    }
-                    //                }
                 }
             } else if (my_palette.grp.cmds.dropDown.items[7].selected) {
                 if (orientation == 'l') {
